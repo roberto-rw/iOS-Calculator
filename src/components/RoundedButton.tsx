@@ -4,13 +4,15 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 interface ButtonProps {
     text: string;
     color?: string;
-    action?: () => void;
+    action: (characeter: string) => void;
     wide?: boolean;
 }
 
 export default function RoundedButton({text, color='#2D2D2D',wide, action}: ButtonProps) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={() => action(text)}
+        >
             <View style={{
                 ...styles.button, 
                 backgroundColor: color,
