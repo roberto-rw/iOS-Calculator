@@ -43,6 +43,14 @@ export default function Calculator() {
         setOperation(operation);
     }
 
+    const positiveNegative = () => {
+        if(result.includes("-")){
+            setResult(result.replace("-", ""));
+        }else{
+            setResult("-" + result);
+        }
+    } 
+
     const calculate = () => {
         const num1 = Number(result);
         const num2 = Number(prevResult);
@@ -60,6 +68,7 @@ export default function Calculator() {
                 setResult((num2 / num1).toString());
                 break;
         }
+        setPrevResult("");
     }
 
     return (
@@ -70,7 +79,7 @@ export default function Calculator() {
             </View>
             <View style={styles.row}>
                 <RoundedButton text="C" color="#9B9B9B" action={clean}/>
-                <RoundedButton text="+/-" color="#9B9B9B" action={buildNumber}/>
+                <RoundedButton text="+/-" color="#9B9B9B" action={positiveNegative}/>
                 <RoundedButton text="DEL" color="#9B9B9B" action={deleteButton}/>
                 <RoundedButton text="/" action={setOperationButton}/>
             </View>
