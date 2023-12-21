@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import RoundedButton from "../components/RoundedButton";
 import { useCalculator } from "../hooks/useCalculator";
